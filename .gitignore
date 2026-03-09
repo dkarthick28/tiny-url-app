@@ -6,3 +6,9 @@
 /WebAPI/TinyUrl.API/obj
 /.vs/tiny-url-app/v17
 /.vs
+*.db
+*.db-shm
+*.db-wal
+*.vsidx
+*.cache
+*.editorconfig

@@ -8,3 +8,11 @@
 /.vs
 /WebAPI/TinyUrl.API/.vs/TinyUrl.API/CopilotIndices/17.14.1593.33849
 /WebAPI/TinyUrl.API/.vs/TinyUrl.API/FileContentIndex
+/WebAPI/TinyUrl.API/bin/Debug/net9.0/runtimes/unix/lib/net6.0
+/WebAPI/TinyUrl.API/bin/Debug/net9.0/runtimes/win/lib/net6.0
+/WebAPI/TinyUrl.API/bin/Debug/net9.0/runtimes/win-arm/native
+/WebAPI/TinyUrl.API/bin/Debug/net9.0/runtimes
+/WebAPI/TinyUrl.API/bin/Debug/net9.0
+/WebAPI/TinyUrl.Repository/bin/Debug/net9.0
+/WebAPI/TinyUrl.Repository/obj/Debug/net9.0
+/WebAPI/TinyUrl.Repository/obj

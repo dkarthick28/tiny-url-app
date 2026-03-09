@@ -19,13 +19,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore ./WebAPI
+        run: dotnet restore ./WebAPI/TinyUrl.API
 
       - name: Build API
-        run: dotnet build ./WebAPI --configuration Release --no-restore
+        run: dotnet build ./WebAPI/TinyUrl.API --configuration Release --no-restore
 
       - name: Publish API
-        run: dotnet publish ./WebAPI -c Release -o publish
+        run: dotnet publish ./WebAPI/TinyUrl.API -c Release -o publish
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2

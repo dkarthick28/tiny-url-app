@@ -6,6 +6,12 @@
 /WebAPI/TinyUrl.API/obj
 /.vs/tiny-url-app/v17
 /.vs
+*.db
+*.db-shm
+*.db-wal
+*.vsidx
+*.cache
+*.editorconfig
 /WebAPI/TinyUrl.API/.vs/TinyUrl.API/CopilotIndices/17.14.1593.33849
 /WebAPI/TinyUrl.API/.vs/TinyUrl.API/FileContentIndex
 /WebAPI/TinyUrl.API/bin/Debug/net9.0/runtimes/unix/lib/net6.0

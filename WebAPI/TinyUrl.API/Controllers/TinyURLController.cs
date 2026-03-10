@@ -17,6 +17,7 @@ namespace TinyUrl.API.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddTinyURL()
         {
+            throw new Exception("Testing Exception in azure");
             return Ok();
         }
 

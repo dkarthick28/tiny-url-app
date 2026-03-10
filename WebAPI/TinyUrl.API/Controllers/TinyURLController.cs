@@ -20,7 +20,7 @@ namespace TinyUrl.API.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddTinyURL()
         {
-            var token =_tokenService.GetSecretToken();
+            
             return Ok();
         }
 

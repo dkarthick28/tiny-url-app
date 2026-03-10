@@ -8,7 +8,8 @@ namespace TinyUrl.ViewModels
 {
     public class TInyURLAddDTO
     {
-
+        public string OriginalURL { get; set; }
+        public string URL { get; set; }
 
     }
 }

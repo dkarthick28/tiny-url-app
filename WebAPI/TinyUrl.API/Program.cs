@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TinyUrl.API.Helpers;
 using TinyUrl.Repository.Interface;
 using TinyUrl.Repository.Model;
 using TinyUrl.Repository.Repositories;
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 
 builder.Services.AddScoped<IService, Service>();
 builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddAutoMapper(typeof(TinyUrlAutoMapper));
 var app = builder.Build();
 
 

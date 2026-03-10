@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinyUrl.Repository.Interface;
 
 namespace TinyUrl.Repository.Repositories
 {
-    internal class Repository
+    public class Repository : IRepository
     {
     }
 }

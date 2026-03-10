@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using TinyUrl.Service.Interface;
 
 namespace TinyUrl.API.Controllers
 {
@@ -7,7 +8,12 @@ namespace TinyUrl.API.Controllers
     [Route("api/[controller]")]
     public class TinyURLController :ControllerBase
     {
-       
+        public readonly IService _service;
+        public TinyURLController(IService serice )
+        {
+           this._service= serice;  
+        }
+
         [HttpPost("add")]
         public async Task<IActionResult> AddTinyURL()
         {

@@ -33,3 +33,5 @@ WebAPI/TinyUrl.API/.vs/ProjectEvaluation/tinyurl.api.projects.v9.bin
 WebAPI/TinyUrl.API/.vs/TinyUrl.API/DesignTimeBuild/.dtbcache.v2
 /WebAPI/TinyUrl.Service/obj/Debug/net9.0
 /WebAPI/TinyUrl.API/.vs/TinyUrl.API/v17
+/WebAPI/TinyUrl.Service/obj
+/WebAPI/TinyUrl.Service/bin/Debug/net9.0

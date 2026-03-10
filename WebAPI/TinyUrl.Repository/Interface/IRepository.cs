@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinyUrl.Repository.Interface
 {
-    internal interface IRepository
+    public interface IRepository
     {
     }
 }

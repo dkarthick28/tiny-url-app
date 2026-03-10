@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinyUrl.Service.Interface
 {
-    internal interface IService
+    public interface IService
     {
     }
 }

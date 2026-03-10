@@ -15,12 +15,6 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 var app = builder.Build();
 
 
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDBContext>();
-    dbContext.Database.EnsureCreated(); // Only for dev/test
-}
-
 
 
 // Configure the HTTP request pipeline.

@@ -12,8 +12,8 @@ using TinyUrl.Repository.Model;
 namespace TinyUrl.Repository.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260309163418_Create_Tbl_TinyAppUrl")]
-    partial class Create_Tbl_TinyAppUrl
+    [Migration("20260310150013_Recreated_Table_TinyURL")]
+    partial class Recreated_Table_TinyURL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,9 @@ namespace TinyUrl.Repository.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPrivate")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
                         .IsRequired()
@@ -67,7 +70,7 @@ namespace TinyUrl.Repository.Migrations
                     b.HasIndex("ShortCode")
                         .IsUnique();
 
-                    b.ToTable("TinyUrls");
+                    b.ToTable("TinyURL");
                 });
 #pragma warning restore 612, 618
         }

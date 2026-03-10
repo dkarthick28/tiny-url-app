@@ -37,6 +37,9 @@ namespace TinyUrl.Repository.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsPrivate")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ModifiedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -64,7 +67,7 @@ namespace TinyUrl.Repository.Migrations
                     b.HasIndex("ShortCode")
                         .IsUnique();
 
-                    b.ToTable("TinyUrls");
+                    b.ToTable("TinyURL");
                 });
 #pragma warning restore 612, 618
         }

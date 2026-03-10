@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TinyUrl.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_Tbl_TinyAppUrl : Migration
+    public partial class Recreated_Table_TinyURL : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TinyUrls",
+                name: "TinyURL",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,6 +20,7 @@ namespace TinyUrl.Repository.Migrations
                     OriginalUrl = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: false),
                     ShortCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     TotalClickCount = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    IsPrivate = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -27,12 +28,12 @@ namespace TinyUrl.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TinyUrls", x => x.Id);
+                    table.PrimaryKey("PK_TinyURL", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TinyUrls_ShortCode",
-                table: "TinyUrls",
+                name: "IX_TinyURL_ShortCode",
+                table: "TinyURL",
                 column: "ShortCode",
                 unique: true);
         }
@@ -41,7 +42,7 @@ namespace TinyUrl.Repository.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TinyUrls");
+                name: "TinyURL");
         }
     }
 }

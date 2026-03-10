@@ -15,10 +15,11 @@ builder.Services.AddControllers();
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
+builder.Services.AddSingleton<TokenService>();
 builder.Services.AddScoped<IService, Service>();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddAutoMapper(typeof(TinyUrlAutoMapper));

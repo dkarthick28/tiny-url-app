@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using TinyUrl.API.Helpers;
 using TinyUrl.Service.Interface;
 
 namespace TinyUrl.API.Controllers
@@ -8,16 +9,18 @@ namespace TinyUrl.API.Controllers
     [Route("api/[controller]")]
     public class TinyURLController :ControllerBase
     {
-        public readonly IService _service;
-        public TinyURLController(IService serice )
+        private readonly IService _service;
+        private readonly TokenService _tokenService;
+        public TinyURLController(IService service , TokenService tokenService)
         {
-           this._service= serice;  
+           this._service= service;
+            this._tokenService= tokenService;
         }
 
         [HttpPost("add")]
         public async Task<IActionResult> AddTinyURL()
         {
-            throw new Exception("Testing Exception in azure");
+            var token =_tokenService.GetSecretToken();
             return Ok();
         }
 

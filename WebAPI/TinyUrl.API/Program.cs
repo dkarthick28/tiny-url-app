@@ -20,8 +20,8 @@ builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSingleton<TokenService>();
-builder.Services.AddScoped<IService, Service>();
-builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<ITinyURLService, TinyURLService>();
+builder.Services.AddScoped<ITinyURLRepository, TinyURLRepository>();
 builder.Services.AddAutoMapper(typeof(TinyUrlAutoMapper));
 builder.Services.AddSingleton<AzureBlobLogger>();
 var app = builder.Build();

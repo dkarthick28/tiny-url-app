@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 using TinyUrl.API.Helpers;
 using TinyUrl.Service.Interface;
+using TinyUrl.ViewModels;
 
 namespace TinyUrl.API.Controllers
 {
@@ -9,47 +11,58 @@ namespace TinyUrl.API.Controllers
     [Route("api/[controller]")]
     public class TinyURLController :ControllerBase
     {
-        private readonly IService _service;
+        private readonly ITinyURLService _service;
         private readonly TokenService _tokenService;
-        public TinyURLController(IService service , TokenService tokenService)
+        public TinyURLController(ITinyURLService service , TokenService tokenService)
         {
            this._service= service;
             this._tokenService= tokenService;
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> AddTinyURL()
+        public async Task<IActionResult> AddTinyURL([FromBody] TinyURLAddViewModel tinyURLAddViewModel )
         {
-            
-            return Ok();
+            // model validations i need to do -pending
+            var result = await _service.AddTinyURL(tinyURLAddViewModel);
+            return Ok(result);
         }
 
         [HttpDelete("delete/{code}")]
         public async Task<IActionResult> DeleteTinyURLByCode(string code)
         {
-            return Ok();
+            var result = await _service.DeleteTinyURLByCode(code);
+            return Ok(result);
         }
 
         [HttpDelete("delete-all")]
         public async Task<IActionResult> DeleteAllTinyURL([FromQuery]string secretCode)
         {
-            return Ok();
+            if (secretCode == _tokenService.GetSecretToken())
+            {
+                var result = await _service.DeleteAllTinyURL();
+                return Ok(result);
+            }
+            else
+                return Unauthorized();
         }
-        [HttpPut("update/{code}")]
-        public async Task<IActionResult> UpdateTinyURLByCode( string code)
-        {
-            return Ok();
-        }
-
+      
         [HttpGet("get/{code}")]
         public async Task<IActionResult> GetTinyURLByCode(string code)
         {
-            return Ok();
+            var result = await _service.GetTinyURLByCode(code);
+            return Ok(result);
         }
         [HttpGet("public")]
-        public async Task<IActionResult> GetTinyURLByCode()
+        public async Task<IActionResult> GetAllTinyPubicURL()
         {
-            return Ok();
+            var result = await _service.GetAllTinyPubicURL();
+            return Ok(result);
+        }
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateTinyURLByCode(string code)
+        {
+            var result =await _service.UpdateTinyURLByCode(code);
+            return Ok(result);
         }
     }
 }

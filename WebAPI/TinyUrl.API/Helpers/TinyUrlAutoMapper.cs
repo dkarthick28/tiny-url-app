@@ -8,7 +8,9 @@ namespace TinyUrl.API.Helpers
     {
         public TinyUrlAutoMapper()
         {
-           // CreateMap<Repository.Model.TinyUrl, TInyURLAddDTO>();
+           CreateMap<Repository.Model.TinyUrl, TinyURLAddViewModel>().ReverseMap();
+            CreateMap<Repository.Model.TinyUrl, TinyURLDTOViewModel>().ForMember(dest => dest.TinyURLId,
+        opt => opt.MapFrom(src => src.Id)).ReverseMap();
 
 
         }

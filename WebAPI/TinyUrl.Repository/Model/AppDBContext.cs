@@ -43,5 +43,43 @@ namespace TinyUrl.Repository.Model
                       .HasDefaultValue(0);
             });
         }
+
+        public override int SaveChanges()
+        {
+            SetAuditFields();
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            SetAuditFields();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void SetAuditFields()
+        {
+            var now = DateTime.UtcNow;
+            const string systemUser = "System";
+
+            // Handle TinyUrl entries only
+            var entries = ChangeTracker.Entries<TinyUrl>();
+
+            foreach (var entry in entries)
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Entity.CreatedBy = systemUser;
+                    entry.Entity.CreatedDateTime = now;
+                    entry.Entity.ModifiedBy = systemUser;
+                    entry.Entity.ModifiedDateTime = now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.ModifiedBy = systemUser;
+                    entry.Entity.ModifiedDateTime = now;
+                }
+            }
+        }
     }
- }
+}

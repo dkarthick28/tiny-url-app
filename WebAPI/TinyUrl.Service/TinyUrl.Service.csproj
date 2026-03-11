@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TinyUrl.Repository\TinyUrl.Repository.csproj" />
+    <ProjectReference Include="..\TinyUrl.ViewModels\TinyUrl.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

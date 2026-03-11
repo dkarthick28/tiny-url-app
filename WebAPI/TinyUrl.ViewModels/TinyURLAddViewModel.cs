@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TinyUrl.ViewModels
 {
-    public class TInyURLAddDTO
+    public class TinyURLAddViewModel
     {
-        public string OriginalURL { get; set; }
-        public string URL { get; set; }
+        public string OriginalUrl { get; set; }
+
+        public bool IsPrivate { get; set; }
 
     }
 }

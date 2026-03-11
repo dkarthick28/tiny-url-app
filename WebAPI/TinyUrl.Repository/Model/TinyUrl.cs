@@ -15,7 +15,7 @@ namespace TinyUrl.Repository.Model
         public string ShortCode { get; set; }
         public int TotalClickCount { get; set; } = 0;
         public bool IsPrivate { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDateTime { get; set; }
         public string CreatedBy { get; set; }
         public DateTime ModifiedDateTime { get; set; }
         public string ModifiedBy { get; set; }

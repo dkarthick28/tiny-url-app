@@ -6,6 +6,7 @@ using TinyUrl.Repository.Model;
 using TinyUrl.Repository.Repositories;
 using TinyUrl.Service.Interface;
 using TinyUrl.Service.Services;
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddScoped<ITinyURLService, TinyURLService>();
 builder.Services.AddScoped<ITinyURLRepository, TinyURLRepository>();
 builder.Services.AddAutoMapper(typeof(TinyUrlAutoMapper));
 builder.Services.AddSingleton<AzureBlobLogger>();
+builder.Services.AddApplicationInsightsTelemetry();
 var app = builder.Build();
 
 

@@ -1,4 +1,4 @@
-import {API_BASE_URL,updateCountUrl} from "./Services/urlService.js";
+import {API_BASE_URL,updateCountUrl} from "../Services/urlService";
 
 export default function UrlItem({data}) {
 console.log('data got is ' , data);

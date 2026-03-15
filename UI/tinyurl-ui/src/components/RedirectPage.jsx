@@ -1,8 +1,7 @@
 import {useEffect} from "react";
 import {useParams} from "react-router-dom";
-import {getUrlByCode} from "..Services/urlService.js";
-
-export default function RedirectPage{
+import {getUrlByCode} from "../Services/urlService";
+export default function RedirectPage(){
 
     const{code}=useParams();
 

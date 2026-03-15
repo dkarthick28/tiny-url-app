@@ -34,7 +34,7 @@ namespace TinyUrl.Repository.Repositories
             return result > 0;
         }
 
-        public async Task<bool> DeleteTinyURLByCode(string code)
+        public async Task<bool> DeleteTinyURLByCode(string code) 
         {
             var tinyUrl = await _dbContext.TinyUrls.SingleOrDefaultAsync(x => x.ShortCode == code);
 

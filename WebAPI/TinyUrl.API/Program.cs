@@ -44,7 +44,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
-app.UseCors("AllowReactApp");
+app.UseCors("AllowReactLocal");
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();

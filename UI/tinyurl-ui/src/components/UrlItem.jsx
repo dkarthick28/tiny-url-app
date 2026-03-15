@@ -1,22 +1,39 @@
-export default function UrlItem() {
+import {API_BASE_URL,updateCountUrl} from "./Services/urlService.js";
+
+export default function UrlItem({data}) {
+console.log('data got is ' , data);
+ 
+const handleRedirect=async()=>{
+  try{
+ 
+  await updateCountUrl(data.shortCode);
+}
+catch(error){
+  console.error(error);
+}
+}
+
+
+
+const shortURL= `${window.location.origin}/${data.shortCode}`;
   return (
     <div className="card p-3 shadow-sm">
 
       <div className="d-flex align-items-center flex-wrap gap-2 mb-2">
 
         <a
-          href="#"
+          href={shortURL}
           className="text-primary text-decoration-none fw-semibold"
         >
-          https://tiny-url-demo.azurewebsites.net/5ee87d
+          {shortURL}
         </a>
 
-        <button className="btn btn-primary">
+        <button className="btn btn-primary" onClick={()=>navigator.clipboard.writeText(shortURL)}>
           Copy
         </button>
 
         <span className="badge bg-success">
-          3 clicks
+         {data.totalClickCount}
         </span>
 
         <button className="btn btn-danger">
@@ -26,7 +43,7 @@ export default function UrlItem() {
       </div>
 
       <div className="text-muted small">
-        https://www.example.com/products/category1/subcategory2/item1234
+      {data.originalUrl}
       </div>
 
     </div>

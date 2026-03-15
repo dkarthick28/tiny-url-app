@@ -35,3 +35,11 @@
       width: 100%;
       align-items: center;
 }
+
+.error-message{
+  color: red;
+  background: #fdecec;
+  padding:8px;
+  border-radius:6px;
+  margin-top:10px;
+}

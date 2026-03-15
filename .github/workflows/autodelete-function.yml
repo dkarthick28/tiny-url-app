@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build Function
-        run: dotnet publish TinyUrl.AutoDelete/TinyUrl.AutoDelete.csproj -c Release -o publish
+        run: dotnet publish ./WebAPI/TinyUrl.AutoDelete/TinyUrl.AutoDelete.csproj -c Release -o publish
 
       - name: Deploy to Azure Function
         uses: Azure/functions-action@v1

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyUrl.Service", "..\TinyU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyUrl.ViewModels", "..\TinyUrl.ViewModels\TinyUrl.ViewModels.csproj", "{8D6FECC8-1A82-4086-8551-0CB76FD62B7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyUrl.AutoDelete", "..\TinyUrl.AutoDelete\TinyUrl.AutoDelete.csproj", "{7F9191D5-A49B-4FF2-9962-546A3E00B98D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8D6FECC8-1A82-4086-8551-0CB76FD62B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D6FECC8-1A82-4086-8551-0CB76FD62B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D6FECC8-1A82-4086-8551-0CB76FD62B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9191D5-A49B-4FF2-9962-546A3E00B98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9191D5-A49B-4FF2-9962-546A3E00B98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9191D5-A49B-4FF2-9962-546A3E00B98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9191D5-A49B-4FF2-9962-546A3E00B98D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

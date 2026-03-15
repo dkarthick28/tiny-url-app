@@ -1,4 +1,4 @@
-export default function ShortUrlResult() {
+export default function ShortUrlResult({data}) {
   return (
     <div className="container mt-4">
 <div className="result-box mt-4">
@@ -11,7 +11,7 @@ export default function ShortUrlResult() {
             href="#"
             className="text-primary text-decoration-underline"
           >
-            https://tiny-url-demo.azurewebsites.net/0a5350
+           {data}
           </a>
         </div>
 

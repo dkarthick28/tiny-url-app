@@ -1,6 +1,7 @@
-const API_BASE_URL = "https://tinyurl-api-c0g8ade0gnf9gzfb.southindia-01.azurewebsites.net/api/TinyURL";
+export const API_BASE_URL = "https://tinyurl-api-c0g8ade0gnf9gzfb.southindia-01.azurewebsites.net/api/TinyURL";
 
 export const createShortUrl = async (data) => {
+  console.log('data ' + data );
   const response = await fetch(`${API_BASE_URL}/add`, {
     method: "POST",
     headers: {
@@ -8,7 +9,7 @@ export const createShortUrl = async (data) => {
     },
     body: JSON.stringify(data)
   });
-
+ console.log('url ' + `${API_BASE_URL}/add` );
   if (!response.ok) {
     throw new Error("Failed to create URL");
   }

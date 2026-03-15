@@ -28,20 +28,35 @@ catch(error){
 
   return (
     <Router>
-      <Routes>
+    <Routes>
 
-<Route path="/" element={
-  <>
-      <Header/>
-      <UrlGeneratorCard setShortUrlData={setShortUrlData} />
-      {shortUrlData && <ShortUrlResult data={shortUrlData} />} 
-      <PublicUrls urls={urls}/>
-      </>
-}/> 
-            {/* Short URL Redirect */}
+        <Route
+          path="/"
+          element={
+            <div className="app-container">
+
+              <Header />
+
+              <div className="main-content">
+
+                <UrlGeneratorCard setShortUrlData={setShortUrlData} />
+
+                {shortUrlData && (
+                  <ShortUrlResult data={shortUrlData} />
+                )}
+
+                <PublicUrls urls={urls} />
+
+              </div>
+
+            </div>
+          }
+        />
+
+        {/* Redirect */}
         <Route path="/:code" element={<RedirectPage />} />
 
-    </Routes>
+      </Routes>
 </Router>
   );
 }

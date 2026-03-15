@@ -1,17 +1,30 @@
+import { useState } from "react";
 import {API_BASE_URL,updateCountUrl} from "../Services/urlService";
+
 
 export default function UrlItem({data}) {
 console.log('data got is ' , data);
+  const [clickCount, setClickCount] = useState(data.totalClickCount);
+
  
-const handleRedirect=async()=>{
-  try{
- 
-  await updateCountUrl(data.shortCode);
-}
-catch(error){
-  console.error(error);
-}
-}
+const handleUrlClick = async (e) => {
+    e.preventDefault(); // prevent immediate navigation
+
+    try {
+      
+      const result = await updateCountUrl(data.shortCode);
+     
+      // API returns updated count
+      setClickCount(result.totalClickCount);
+
+      // open the original URL after updating count
+     window.open(shortURL, "_blank");
+
+    } catch (err) {
+      console.error("Failed to update count", err);
+      window.open(shortURL, "_blank"); // fallback
+    }
+  };
 
 
 
@@ -22,7 +35,8 @@ const shortURL= `${window.location.origin}/${data.shortCode}`;
       <div className="d-flex align-items-center flex-wrap gap-2 mb-2">
 
         <a
-          href={shortURL}
+          href={shortURL}     onClick={handleUrlClick}
+
           className="text-primary text-decoration-none fw-semibold"
         >
           {shortURL}
@@ -33,7 +47,7 @@ const shortURL= `${window.location.origin}/${data.shortCode}`;
         </button>
 
         <span className="badge bg-success">
-         {data.totalClickCount}
+         {clickCount}
         </span>
 
         <button className="btn btn-danger">

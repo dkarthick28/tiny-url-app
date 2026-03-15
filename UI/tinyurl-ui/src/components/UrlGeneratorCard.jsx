@@ -67,13 +67,10 @@ catch(error)
 
         </div>
 
-         <div className="tinyurl-error-msg">
-          {errorMessage && (
-  <p >{errorMessage}</p>
-)}
-       
-
+{errorMessage && (<div className="tinyurl-error-msg">        
+  {errorMessage}
       </div>
+      )}
       </>
   );
 }

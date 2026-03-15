@@ -1,11 +1,16 @@
 import UrlItem from "./UrlItem";
 
-export default function UrlList() {
+export default function UrlList({urls}) {
+  
+  if (!urls || urls.length === 0) {
+    return <p>No URLs found.</p>;
+  }
   return (
     <div className="tinyurl-scrollable-list">
-      <UrlItem />
-      <UrlItem />
-      <UrlItem />
+    {
+     urls.map((url)=>(
+      <UrlItem key={url.tinyURLId} data={url} />
+))
+    }
     </div>
-  );
-}
+  )};

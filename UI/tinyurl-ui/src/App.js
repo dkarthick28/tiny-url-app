@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import UrlGeneratorCard from "./components/UrlGeneratorCard";
 import ShortUrlResult from  "./components/ShortUrlResult";
 import PublicUrls from  "./components/PublicUrls";
+import RedirectPage from  "./components/RedirectPage";
 import {getAllPublicUrls} from "./Services/urlService";
 import "./App.css";
 function App() {

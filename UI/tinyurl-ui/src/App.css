@@ -36,6 +36,41 @@
       align-items: center;
 }
 
+.tinyurl-list-item{
+    align-items: flex-start;
+    margin-bottom: .3rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: .6rem;
+    background: #f9f9f9;
+    transition: background .3s;
+}
+.tinyurl-list-main {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.tinyurl-short-url-row {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    margin-bottom: .2rem;
+    flex-wrap: wrap;
+}
+
+.tinyurl-original-url {
+    color: #64748b;
+    font-size: .98rem;
+    word-break: break-all;
+    margin-bottom: .1rem;
+}
+
 .error-message{
   color: red;
   background: #fdecec;
@@ -52,13 +87,161 @@ body{
 
 /* page layout */
 .app-container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 .2rem;
+    background: none;
+    box-shadow: none;
 }
+.app-container.top-align {
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* content wrapper */
 .main-content{
   width:700px;
   margin-top:20px;
+}
+
+.tiny-url-box{
+   background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px #5b21b614;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;   /* important */
+  width: 100%;
+ /* max-width: 500px;*/
+}
+.tiny-GenrateButton{
+  width: 100%;
+    padding: .6rem 0;
+    background: linear-gradient(90deg, #f43f5e, #a21caf);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: .6rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #5b21b614;
+    transition: background .2s, box-shadow .2s;
+    margin-top:.5rem;
+}
+
+.tinyurl-input-row{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.tinyurl-url-input {
+    flex: 1;
+    padding: .5rem .7rem;
+    border: 1.2px solid #a5b4fc;
+    border-radius: .6rem;
+    font-size: .95rem;
+    outline: none;
+    transition: border .2s;
+    background: #f3f4f6;
+}
+.tinyurl-checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: .95rem;
+    color: #5b21b6;
+    font-weight: 500;
+    gap: .3rem;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.tinyurl-error-msg {
+    color: #dc2626;
+    background: #fef2f2;
+    padding: .4rem .8rem;
+    border-radius: .6rem;
+    font-weight: 500;
+    margin-top: .4rem;
+    display: inline-block;
+}
+
+.tinyurl-checkbox-label input[type=checkbox]
+ {
+    accent-color: #5b21b6;
+    width: 1rem;
+    height: 1rem;
+}
+
+.tinyurl-search-bar{
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: .7rem;
+    padding: .4rem .7rem;
+    font-size: .95rem;
+    border: 1.2px solid #a5b4fc;
+    border-radius: .6rem;
+    outline: none;
+    background: #f3f4f6;
+    transition: border .2s;
+    display: block;
+}
+
+.tinyurl-delete-btn {
+    background: #f43f5e;
+    color: #fff;
+    border: none;
+    border-radius: .7rem;
+    padding: .5rem 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s;
+    margin-left: .5rem;
+    margin-top: .2rem;
+}
+
+.tinyurl-copy-btn-small {
+    padding: .18rem .7rem;
+    font-size: .85rem;
+    margin-left: .5rem;
+}
+.tinyurl-copy-btn {
+    margin-left: .7rem;
+    padding: .32rem .9rem;
+    font-size: .95rem;
+    font-weight: 500;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: .7rem;
+    cursor: pointer;
+    transition: background .2s;
+    outline: none;
+}
+
+.tinyurl-clicks-badge {
+    background: #f3f4f6;
+    color: #5b21b6;
+    font-size: .92rem;
+    border-radius: .7rem;
+    padding: .18rem .7rem;
+    font-weight: 500;
+    margin-left: .2rem;
+}
+.tinyurl-short-url-link {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: underline;
+    word-break: break-all;
+    font-size: 1.08rem;
 }

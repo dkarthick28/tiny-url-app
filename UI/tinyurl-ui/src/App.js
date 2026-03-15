@@ -33,13 +33,13 @@ catch(error){
         <Route
           path="/"
           element={
-            <div className="app-container">
+            <div className="app-container top-align">
 
               <Header />
 
               <div className="main-content">
 
-                <UrlGeneratorCard setShortUrlData={setShortUrlData} />
+                <UrlGeneratorCard setShortUrlData={setShortUrlData} refreshUrls={loadUrls} />
 
                 {shortUrlData && (
                   <ShortUrlResult data={shortUrlData} />

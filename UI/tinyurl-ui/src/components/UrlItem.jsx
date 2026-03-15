@@ -3,10 +3,18 @@ import {API_BASE_URL,updateCountUrl} from "../Services/urlService";
 
 
 export default function UrlItem({data}) {
-console.log('data got is ' , data);
+
+const [copied, setCopied] = useState(false);
   const [clickCount, setClickCount] = useState(data.totalClickCount);
 
- 
+ const handleCopy = (url) => {
+  navigator.clipboard.writeText(url);
+  setCopied(true);
+
+  setTimeout(() => {
+    setCopied(false);
+  }, 2000);
+};
 const handleUrlClick = async (e) => {
     e.preventDefault(); // prevent immediate navigation
 
@@ -30,35 +38,32 @@ const handleUrlClick = async (e) => {
 
 const shortURL= `${window.location.origin}/${data.shortCode}`;
   return (
-    <div className="card p-3 shadow-sm">
+    <div className="tinyurl-list-item">
 
-      <div className="d-flex align-items-center flex-wrap gap-2 mb-2">
-
-        <a
-          href={shortURL}     onClick={handleUrlClick}
-
-          className="text-primary text-decoration-none fw-semibold"
-        >
+      <div className="tinyurl-list-main">
+<div className="tinyurl-short-url-row">
+        <a href={shortURL}  onClick={handleUrlClick} className="tinyurl-short-url-link">
           {shortURL}
         </a>
 
-        <button className="btn btn-primary" onClick={()=>navigator.clipboard.writeText(shortURL)}>
-          Copy
+        <button className="tinyurl-copy-btn tinyurl-copy-btn-small" onClick={() => handleCopy(shortURL)}>
+           {copied ? "Copied!" : "Copy"}
         </button>
 
-        <span className="badge bg-success">
+        <span className="tinyurl-clicks-badge">
          {clickCount}
         </span>
-
-        <button className="btn btn-danger">
-          Delete
-        </button>
-
-      </div>
-
-      <div className="text-muted small">
+     </div>
+        <div className="tinyurl-original-url">
       {data.originalUrl}
       </div>
+       
+
+      </div>
+
+    <button className="tinyurl-delete-btn">
+          Delete
+        </button>
 
     </div>
   );

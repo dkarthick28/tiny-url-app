@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {createShortUrl} from "../Services/urlService";
 
-function UrlGenerator({setShortUrlData}) {
+function UrlGenerator({setShortUrlData,refreshUrls}) {
     const[url,setUrl] =useState("");
     const[isPrivate,setIsPrivate] =useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -22,6 +22,7 @@ function UrlGenerator({setShortUrlData}) {
             const result= await createShortUrl(data);
             const shortUrl= `${window.location}/${result.shortCode}`;
             setShortUrlData(shortUrl);
+            refreshUrls();
             console.log(result);
       }
 catch(error)
@@ -33,51 +34,47 @@ catch(error)
     };
     
   return (
-    <div className="container mt-4">
+   <>
 
-      <div className="card p-4 shadow-sm">
+      <div className="tiny-url-box">
 
      
-        <div className="row align-items-centtinyurl-uier">
+        <div className="tinyurl-input-row">
             <input
               type="text"
-              className="form-control"
+              className="tinyurl-url-input"
               placeholder="Enter URL to shorten" value={url} onChange={(e)=>setUrl(e.target.value)}
             />
-          </div>
-
-          <div className="col-md-2 text-end">
-            <div className="form-check">
-              <input
+              
+              <label className="tinyurl-checkbox-label" htmlFor="isPrivate">
+                <input
                 type="checkbox"
                 className="form-check-input"
                 id="isPrivate" checked={isPrivate} onChange={(e)=>setIsPrivate(e.target.checked)}
               />
-              <label className="form-check-label" htmlFor="isPrivate">
                 IsPrivate
               </label>
-            </div>
+          
+
           </div>
+
+         
+           
+             <button onClick={handleGenerate}  className="tiny-GenrateButton">
+            Generate
+          </button>
+ 
 
         </div>
 
-        {/* Generate Button */}
-       
-          <button onClick={handleGenerate}  className="btn generate-btn mt-3 w-100"
-  style={{
-    background: "linear-gradient(90deg,#ff416c,#7b2ff7)",
-    border: "none"
-  }}
->
-            Generate
-          </button>
-
+         <div className="tinyurl-error-msg">
           {errorMessage && (
-  <p className="error-message">{errorMessage}</p>
+  <p >{errorMessage}</p>
 )}
        
 
       </div>
+      </>
   );
 }
 

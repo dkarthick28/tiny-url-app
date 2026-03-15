@@ -26,6 +26,12 @@ builder.Services.AddScoped<ITinyURLRepository, TinyURLRepository>();
 builder.Services.AddAutoMapper(typeof(TinyUrlAutoMapper));
 builder.Services.AddSingleton<AzureBlobLogger>();
 builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactLocal", policy => {
+        policy.WithOrigins("http://localhost:3000/").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 
@@ -38,6 +44,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
+app.UseCors("AllowReactApp");
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();

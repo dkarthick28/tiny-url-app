@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Header from "./components/Header";
+import UrlGeneratorCard from "./components/UrlGeneratorCard";
+import ShortUrlResult from  "./components/ShortUrlResult";
+import PublicUrls from  "./components/PublicUrls";
+import "./App.css";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+      <Header/>
+      <UrlGeneratorCard />
+      <ShortUrlResult/> 
+      <PublicUrls/> 
+    </div> 
+     /*<div className="container mt-5">
+      <h1 className="text-primary">Tiny URL</h1>
+      <button className="btn btn-success">Test Button</button>
+      </div>*/
   );
 }
 

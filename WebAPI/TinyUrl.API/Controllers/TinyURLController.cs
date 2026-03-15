@@ -59,7 +59,7 @@ namespace TinyUrl.API.Controllers
             var result = await _service.GetAllTinyPubicURL();
             return Ok(result);
         }
-        [HttpPut("update")]
+        [HttpPut("update/{code}")]
         public async Task<IActionResult> UpdateTinyURLByCode(string code)
         {
             var result =await _service.UpdateTinyURLByCode(code);

@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "TinyUrl.AutoDelete/**"
 
 jobs:
   build-and-deploy:

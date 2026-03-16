@@ -16,7 +16,7 @@ namespace TinyUrl.AutoDelete
         }
 
         [Function("AutoDeleteTinyUrl")]
-        public async Task Run([TimerTrigger("*/62 * * * * *")] TimerInfo myTimer)
+        public async Task Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function started at: {DateTime.Now}");
 

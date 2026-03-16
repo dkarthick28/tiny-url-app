@@ -29,7 +29,7 @@ builder.Services.AddApplicationInsightsTelemetry();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactLocal", policy => {
-        policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
 var app = builder.Build();
